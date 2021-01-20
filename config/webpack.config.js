@@ -730,18 +730,19 @@ module.exports = function (webpackEnv) {
           },
         },
       }),
-      isEnvProduction &&
-        new SentryWebpackPlugin({
-          // sentry-cli configuration
-          authToken:
-            "fbca69bdeba54299859eb15ebbac1195061f674060bb40d19aff076b6a6d1369",
-          org: "exmaple-org",
-          project: "example-project",
+      // isEnvProduction &&
+      //   new SentryWebpackPlugin({
+      //     // sentry-cli configuration
+      //     /* process.env.SENTRY_AUTH_TOKEN, */
+      //     authToken:
+      //       "fbca69bdeba54299859eb15ebbac1195061f674060bb40d19aff076b6a6d1369",
+      //     org: "rabbit-db",
+      //     project: "rabbit-db",
 
-          // webpack specific configuration
-          include: ".",
-          ignore: ["node_modules", "webpack.config.js"],
-        }),
+      //     // webpack specific configuration
+      //     include: "./build",
+      //     ignore: ["node_modules", "webpack.config.js"],
+      //   }),
     ].filter(Boolean),
     // Some libraries import Node modules but don't use them in the browser.
     // Tell webpack to provide empty mocks for them so importing them works.

@@ -733,13 +733,14 @@ module.exports = function (webpackEnv) {
       isEnvProduction &&
         new SentryWebpackPlugin({
           // sentry-cli configuration
+          /* process.env.SENTRY_AUTH_TOKEN, */
           authToken:
             "fbca69bdeba54299859eb15ebbac1195061f674060bb40d19aff076b6a6d1369",
-          org: "exmaple-org",
-          project: "example-project",
+          org: "rabbit-db",
+          project: "rabbit-db",
 
           // webpack specific configuration
-          include: ".",
+          include: "./build",
           ignore: ["node_modules", "webpack.config.js"],
         }),
     ].filter(Boolean),

@@ -7,13 +7,17 @@ import { Integrations } from "@sentry/tracing";
 import reportWebVitals from "./reportWebVitals";
 
 Sentry.init({
-  dsn:
-    "https://249a04defa72413c890bcb3e5b34af3a@o507147.ingest.sentry.io/5597832",
+  dsn: "https://249a04defa72413c890bcb3e5b34af3a@o507147.ingest.sentry.io/5597832",
   autoSessionTracking: true,
   integrations: [new Integrations.BrowserTracing()],
   // We recommend adjusting this value in production, or using tracesSampler
   // for finer control
   tracesSampleRate: 1.0,
+  beforeSend(event, hint) {
+    console.log(event, hint);
+    return event;
+  },
+  allowUrls: [/https?:\/\/storage\.sunzi\.cool/],
 });
 
 ReactDOM.render(
